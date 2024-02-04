@@ -79,6 +79,7 @@ Evaluation results on CIFAR-100:
 | SELU       | 2.2674       | 42%      |
 | PReLU      | 2.2759       | 42%      |
 | ReLU       | 2.3933       | 39%      |
+
 _* Results provided for training with MAPEC activation for 20 and 15 epochs respectively._
 
 
