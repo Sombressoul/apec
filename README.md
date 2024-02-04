@@ -10,7 +10,6 @@
     - [MAPEC (Multiplicative Asymmetric Parametric Exponential Curvature)](#mapec-multiplicative-asymmetric-parametric-exponential-curvature)
   - [Evaluation](#evaluation)
   - [Results](#results)
-  - [CIFAR-100 Evaluation Script](#cifar-100-evaluation-script)
   - [Contributing](#contributing)
   - [License](#license)
 
@@ -74,27 +73,20 @@ Evaluation results on CIFAR-100:
 | Activation | Average Loss | Accuracy |
 | ---------- | ------------ | -------- |
 | APEC       | 2.2235       | 43%      |
-| *MAPEC 20e | 2.3301       | 42%      |
-| *MAPEC 15e | 2.2509       | 42%      |
+| MAPEC 20e* | 2.3301       | 42%      |
+| MAPEC 15e* | 2.2509       | 42%      |
 | Mish       | 2.2704       | 43%      |
 | SELU       | 2.2674       | 42%      |
 | PReLU      | 2.2759       | 42%      |
 | ReLU       | 2.3933       | 39%      |
-
-APEC leads to the best performance, closely followed by Mish and SELU.
-MAPEC leads to the faster convergence with performance closely to APEC.
-
 _* Results provided for training with MAPEC activation for 20 and 15 epochs respectively._
 
+
+**APEC** leads to the best performance, closely followed by Mish and SELU.
+
+**MAPEC** leads to the faster convergence with performance closely to APEC.
+
 You could look at training loss plots [here](doc/plots.md).
-
-## CIFAR-100 Evaluation Script
-Included in this repository is an evaluation script for the CIFAR-100 dataset.
-
-Use the following command to see available options:
-```bash
-python scripts/eval_cifar100.py --help
-```
 
 ## Contributing
 Contributions and suggestions are welcome! Feel free to fork the repository, open issues, and submit pull requests.
