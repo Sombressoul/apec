@@ -3,11 +3,12 @@
 - [APEC and MAPEC Activation Functions for Neural Networks](#apec-and-mapec-activation-functions-for-neural-networks)
   - [Overview](#overview)
   - [Installation](#installation)
+  - [Usage](#usage)
   - [Activation Functions](#activation-functions)
   - [Mathematical Formulation](#mathematical-formulation)
     - [APEC (Asymmetric Parametric Exponential Curvature)](#apec-asymmetric-parametric-exponential-curvature)
     - [MAPEC (Multiplicative Asymmetric Parametric Exponential Curvature)](#mapec-multiplicative-asymmetric-parametric-exponential-curvature)
-  - [Usage](#usage)
+  - [Evaluation](#evaluation)
   - [Results](#results)
   - [CIFAR-100 Evaluation Script](#cifar-100-evaluation-script)
   - [Contributing](#contributing)
@@ -19,6 +20,17 @@ This repository introduces two novel activation functions, APEC (Asymmetric Para
 ## Installation
 ```bash
 pip install apec-afn
+```
+
+## Usage
+```python
+import torch
+from apec import MAPEC
+
+x = torch.randn([8])
+f = MAPEC()
+
+print(f(x))
 ```
 
 ## Activation Functions
@@ -48,7 +60,7 @@ $$f(x) = a + \frac{b - x}{g - \exp(-x)} + (x \cdot d)$$
 
 These functions aim to provide enhanced flexibility and adaptability for neural networks, particularly beneficial for complex pattern recognition tasks.
 
-## Usage
+## Evaluation
 To evaluate a model with a specific activation function on CIFAR-100 and plot _training loss*_, use:
 ```bash
 python scripts/eval_cifar100.py --activation APEC --plot-loss
