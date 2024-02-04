@@ -12,8 +12,6 @@
   - [CIFAR-100 Evaluation Script](#cifar-100-evaluation-script)
   - [Contributing](#contributing)
   - [License](#license)
-  - [Training Loss Plots](#training-loss-plots)
-
 
 ## Overview
 This repository introduces two novel activation functions, APEC (Asymmetric Parametric Exponential Curvature) and its variant MAPEC (Multiplicative APEC), designed for deep learning models to capture complex patterns with improved performance. Functions have been tested on the CIFAR-100 dataset (results included) and on some of my experimental models (results not included).
@@ -30,6 +28,8 @@ pip install apec-afn
 ## Mathematical Formulation
 
 ### APEC (Asymmetric Parametric Exponential Curvature)
+![APEC](doc/APEC_fn_plot.png)
+
 APEC is designed to introduce a non-linear response with an adjustable curvature, defined by:
 $$f(x) = a + \frac{b - x}{(g - \exp(-x)) + \epsilon}$$
 
@@ -38,6 +38,8 @@ $$f(x) = a + \frac{b - x}{(g - \exp(-x)) + \epsilon}$$
 - **Stability**: A small constant `eps` (1.0e-5) is added to prevent division by zero.
 
 ### MAPEC (Multiplicative Asymmetric Parametric Exponential Curvature)
+![MAPEC](doc/MAPEC_fn_plot.png)
+
 MAPEC extends APEC by adding a multiplicative term, enhancing its flexibility:
 $$f(x) = a + \frac{b - x}{g - \exp(-x)} + (x \cdot d)$$
 
@@ -58,7 +60,7 @@ _* Plotting training loss requires `self-projection` package to be installed._
 Evaluation results on CIFAR-100:
 
 | Activation | Average Loss | Accuracy |
-|------------|--------------|----------|
+| ---------- | ------------ | -------- |
 | APEC       | 2.2235       | 43%      |
 | *MAPEC 20e | 2.3301       | 42%      |
 | *MAPEC 15e | 2.2509       | 42%      |
@@ -71,6 +73,8 @@ APEC leads to the best performance, closely followed by Mish and SELU.
 MAPEC leads to the faster convergence with performance closely to APEC.
 
 _* Results provided for training with MAPEC activation for 20 and 15 epochs respectively._
+
+You could look at training loss plots [here](doc/plots.md).
 
 ## CIFAR-100 Evaluation Script
 Included in this repository is an evaluation script for the CIFAR-100 dataset.
@@ -86,29 +90,3 @@ Contributions and suggestions are welcome! Feel free to fork the repository, ope
 ## License
 
 `APEC` is released under the MIT License. See the `LICENSE` file for more details.
-
-## Training Loss Plots
-* APEC:
-
-![APEC](doc/CIFAR100_APEC.png)
-
-* MAPEC:
-
-![MAPEC](doc/CIFAR100_MAPEC.png)
-
-* Mish:
-
-![Mish](doc/CIFAR100_Mish.png)
-
-* SELU:
-
-![SELU](doc/CIFAR100_SELU.png)
-
-* PReLU:
-
-![PReLU](doc/CIFAR100_PReLU.png)
-
-* ReLU:
-
-![ReLU](doc/CIFAR100_ReLU.png)
-
