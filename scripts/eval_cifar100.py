@@ -134,7 +134,7 @@ def main():
         "--plot-loss",
         default=False,
         action="store_true",
-        help="plot training loss (default: False)",
+        help="plot training loss (default: False) (requires self-projection package)",
     )
     args = parser.parse_args()
 
