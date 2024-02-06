@@ -42,7 +42,7 @@ print(f(x))
 ![APEC](doc/APEC_fn_plot.png)
 
 APEC is designed to introduce a non-linear response with an adjustable curvature, defined by:
-$$f(x) = a + \frac{b - x}{(g - \exp(-x)) + \epsilon}$$
+$$f(x) = \alpha + \frac{\beta - x}{(\gamma - \exp(-x)) + \epsilon}$$
 
 - **Initialization**: Parameters `a` and `b` are initialized with a normal distribution of zero mean and a standard deviation of 0.35. Parameter `g` is initialized with a mean of -1.375 and a standard deviation of 0.35.
 - **Constraints**: The default constraints for `a`, `b`, and `g` are [-2.0, +2.0], [-2.5, +2.5], and [-2.5, -0.25], respectively.
@@ -52,9 +52,9 @@ $$f(x) = a + \frac{b - x}{(g - \exp(-x)) + \epsilon}$$
 ![MAPEC](doc/MAPEC_fn_plot.png)
 
 MAPEC extends APEC by adding a multiplicative term, enhancing its flexibility:
-$$f(x) = a + \frac{b - x}{-abs(g) - \exp(-x) - \epsilon} + (x \cdot d)$$
+$$f(x) = (\alpha + \frac{\beta - x}{-abs(\gamma) - \exp(-x) - \epsilon} + (x \cdot \delta)) \cdot \zeta$$
 
-- **Initialization**: Parameters `a`, `b`, and `d` are initialized to 0.0, and `g` is initialized to -1.0.
+- **Initialization**: Parameters initialization values are -3.333e-2, -0.1, -2.0, +0.1 and +1.0 for alpha, beta, gamma, delta and zeta respectively.
 - **Constraints**: There are no constraints on the parameters for MAPEC, allowing for a fully adaptive response.
 - **Stability**: A small constant `eps` (1.0e-3) is subtracted from denominator to prevent division by zero.
 
