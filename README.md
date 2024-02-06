@@ -73,20 +73,20 @@ Evaluation results on CIFAR-100:
 
 | Activation | Average Loss | Accuracy |
 | ---------- | ------------ | -------- |
+| MAPEC 16e* | 2.2004       | 43%      |
 | APEC       | 2.2235       | 43%      |
-| MAPEC 20e* | 2.3301       | 42%      |
-| MAPEC 15e* | 2.2509       | 42%      |
+| MAPEC 20e* | 2.2456       | 43%      |
 | Mish       | 2.2704       | 43%      |
 | SELU       | 2.2674       | 42%      |
 | PReLU      | 2.2759       | 42%      |
 | ReLU       | 2.3933       | 39%      |
 
-_* Results provided for training with MAPEC activation for 20 and 15 epochs respectively._
+_* Results provided for training with MAPEC activation for 20 and 16 epochs respectively._
 
 
 **APEC** leads to the best performance, closely followed by Mish and SELU.
 
-**MAPEC** leads to the faster convergence with performance closely to APEC.
+**MAPEC** leads to the faster convergence with performance closely followed by APEC.
 
 You could look at training loss plots [here](doc/plots.md).
 
