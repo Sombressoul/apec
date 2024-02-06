@@ -52,10 +52,11 @@ $$f(x) = a + \frac{b - x}{(g - \exp(-x)) + \epsilon}$$
 ![MAPEC](doc/MAPEC_fn_plot.png)
 
 MAPEC extends APEC by adding a multiplicative term, enhancing its flexibility:
-$$f(x) = a + \frac{b - x}{g - \exp(-x)} + (x \cdot d)$$
+$$f(x) = a + \frac{b - x}{-abs(g) - \exp(-x) - \epsilon} + (x \cdot d)$$
 
 - **Initialization**: Parameters `a`, `b`, and `d` are initialized to 0.0, and `g` is initialized to -1.0.
 - **Constraints**: There are no constraints on the parameters for MAPEC, allowing for a fully adaptive response.
+- **Stability**: A small constant `eps` (1.0e-3) is subtracted from denominator to prevent division by zero.
 
 These functions aim to provide enhanced flexibility and adaptability for neural networks, particularly beneficial for complex pattern recognition tasks.
 
