@@ -9,13 +9,25 @@ class MAPEC(nn.Module):
 
     def __init__(
         self,
+        num_features: int = 1,
+        alpha: float = -3.333e-2,
+        beta: float = -0.1,
+        gamma: float = -2.0,
+        delta: float = +0.1,
+        zeta: float = +1.0,
         eps: float = 1.0e-3,
     ) -> None:
         super(MAPEC, self).__init__()
 
         self.eps = eps
 
-        coefficients = torch.tensor([+0.0, +0.0, -1.0, +0.0])
+        alphas = [alpha] * num_features
+        betas = [beta] * num_features
+        gammas = [gamma] * num_features
+        deltas = [delta] * num_features
+        zetas = [zeta] * num_features
+
+        coefficients = torch.tensor([alphas, betas, gammas, deltas, zetas])
         coefficients = torch.nn.Parameter(coefficients)
         self.register_parameter("coefficients", coefficients)
 
@@ -29,5 +41,6 @@ class MAPEC(nn.Module):
         b = self.coefficients[1]
         g = self.coefficients[2]
         d = self.coefficients[3]
-        x = a + (b - x) / (-g.abs() - torch.exp(-x) - self.eps) + (x * d)
+        z = self.coefficients[4]
+        x = (a + (b - x) / (-g.abs() - torch.exp(-x) - self.eps) + (x * d)) * z
         return x
